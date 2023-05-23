@@ -29,4 +29,5 @@ npm run build
 ```
 ## References
 
+* `https://testdriven.io/blog/developing-a-single-page-app-with-flask-and-vuejs/`
 * `https://fastapi.tiangolo.com/pl/advanced/generate-clients/`
