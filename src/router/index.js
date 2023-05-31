@@ -5,16 +5,37 @@ import Ping from '../components/Ping.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
-    {
-      path: '/',
-      name: 'Books',
-      component: Books,
-    },
+    // {
+    //   path: '/',
+    //   name: 'Books',
+    //   component: Books,
+    // },
     {
       path: '/ping',
       name: 'ping',
       component: Ping
     },
+    {
+      path: '/',
+      name: 'home',
+      component: HomeView
+    },
+    {
+      path: '/about',
+      name: 'about',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/AboutView.vue')
+    },
+    {
+      path: '/blog',
+      name: 'blog',
+      // route level code-splitting
+      // this generates a separate chunk (Blog.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/BlogView.vue')
+    }
   ]
 })
 
