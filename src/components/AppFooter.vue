@@ -1,6 +1,6 @@
 <template>
     <footer>
-        <p><slot name="message">Default Footer</slot></p>
+        <p><slot name="message">DeFooter</slot></p>
         <p><slot name="link"></slot></p>
     </footer>
 </template>
