@@ -1,4 +1,4 @@
-<script setup> 
+<script setup()> 
 import {useQuery} from '@vue/apollo-composable';
 import { computed } from '@vue/reactivity';
 import gql from `graphql-tag`;
