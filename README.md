@@ -67,8 +67,8 @@ This course utilizes the following:
 ## Project Setup
 
 ```sh
-$ git clone git@gitlab.com:patkennedy79/vue-crud-course-code.git
-$ cd vue-crud-course-code
+$ git clone git@gitlab.com:patkennedy79/macMasterFront.git
+$ cd macMasterFront
 $ npm install
 ```
 
@@ -105,3 +105,7 @@ $ npm run lint
 ## Additional Resources
 
 Vue Documentation: [https://vuejs.org/guide/introduction.html](https://vuejs.org/guide/introduction.html)
+
+
+1. https://youtu.be/CXyFs5wWask
+
