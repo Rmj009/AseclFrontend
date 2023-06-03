@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onBeforeMount, onMounted, onBeforeUnmount, onUnmounted } from 'vue'
+import { ref, onBeforeMount, onMounted, onBeforeUnmount, onUnmounted, onBeforeUpdate, onUpdated } from 'vue'
 import { RouterView } from 'vue-router'
 import AppHeader from '@/components/AppHeader.vue'
 import AppFooter from '@/components/AppFooter.vue'
@@ -8,12 +8,19 @@ const headerTitle = ref("Vue Project (Dynamic)")
 
 // ---------------
 // Lifecycle Hooks
+// https://vuejs.org/guide/essentials/lifecycle.html#lifecycle-diagram
 // ---------------
 onBeforeMount(() => {
   console.log('App.vue: onBeforeMount() called!')
 })
 onMounted(() => {
   console.log('App.vue: onMounted() called!')
+})
+onBeforeUpdate(() => {
+  console.log('App.vue: onBeforeUpdate() called!')
+})
+onUpdated(() => {
+  console.log('App.vue: onUpdated() called!')
 })
 onBeforeUnmount(() => {
   console.log('App.vue: onBeforeUnmount() called!')
