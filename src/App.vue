@@ -3,7 +3,11 @@ import { ref, onBeforeMount, onMounted, onBeforeUnmount, onUnmounted, onBeforeUp
 import { RouterView } from 'vue-router'
 import AppHeader from '@/components/AppHeader.vue'
 import AppFooter from '@/components/AppFooter.vue'
-
+/////////////////////////////
+// import GraphQLComponent from '.components/GraphQLComponent.vue';
+// import { AllProductQuery } from '.components/AllProductQuery';
+// import { OtherQuery } from './OtherQuery';
+///////////////////////////////
 const headerTitle = ref("Vue Project (Dynamic)")
 
 // ---------------
