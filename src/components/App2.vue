@@ -1,11 +1,11 @@
 <script setup()> 
 import {useQuery} from '@vue/apollo-composable';
-import { computed } from '@vue/reactivity';
+// import { computed } from '@vue/reactivity';
 import gql from `graphql-tag`;
 import { watchEffect, computed } from 'vue';
 
 
-const AlluserQuery = gql`
+const AllproductQuery = gql`
     query allusers{
         products{
             id
@@ -15,7 +15,7 @@ const AlluserQuery = gql`
     }
 `;
 
-const {result, error, loading} = useQuery(AlluserQuery);
+const {result, error, loading} = useQuery(AllproductQuery);
 const product = computed(() => result.value?.creatdTime ?? [])
 
 watchEffect(()=>{
