@@ -2,7 +2,7 @@
 import { ref, onBeforeMount, onMounted, onBeforeUnmount, onUnmounted, onBeforeUpdate, onUpdated } from 'vue'
 import { RouterView } from 'vue-router'
 import AppHeader from '@/components/AppHeader.vue'
-import AppFooter from '@/components/AppFooter.vue'
+// import AppFooter from '@/components/AppFooter.vue'
 /////////////////////////////
 // import GraphQLComponent from '.components/GraphQLComponent.vue';
 // import { AllProductQuery } from '.components/AllProductQuery';
@@ -37,8 +37,8 @@ onUnmounted(() => {
 <template>
     <AppHeader v-bind:title="headerTitle"></AppHeader>
     <RouterView />
-    <AppFooter>
+    <!-- <AppFooter>
         <template v-slot:message>DeFooter VuePage</template>
         <template v-slot:link><a href="https://testdriven.io">TestDriven.io</a></template>
-    </AppFooter>
+    </AppFooter> -->
 </template>

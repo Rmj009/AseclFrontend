@@ -24,7 +24,7 @@ describe('App.vue Test', () => {
     // check that all 3 sub-components are rendered
     expect(wrapper.getComponent({ name: 'AppHeader' }).exists()).toBeTruthy()
     expect(wrapper.getComponent({ name: 'AppContent' }).exists()).toBeTruthy()
-    expect(wrapper.getComponent({ name: 'AppFooter' }).exists()).toBeTruthy()
+    // expect(wrapper.getComponent({ name: 'AppFooter' }).exists()).toBeTruthy()
   })
 
   it('renders about page', async () => {
@@ -45,7 +45,7 @@ describe('App.vue Test', () => {
 
     // check that 2 sub-components are rendered
     expect(wrapper.getComponent({ name: 'AppHeader' }).exists()).toBeTruthy()
-    expect(wrapper.getComponent({ name: 'AppFooter' }).exists()).toBeTruthy()
+    // expect(wrapper.getComponent({ name: 'AppFooter' }).exists()).toBeTruthy()
 
     // check that the 'About' heading is displayed
     const heading = wrapper.findAll('h2')
@@ -72,6 +72,6 @@ describe('App.vue Test', () => {
     // check that all 3 sub-components are rendered
     expect(wrapper.getComponent({ name: 'AppHeader' }).exists()).toBeTruthy()
     expect(wrapper.getComponent({ name: 'BlogEntries' }).exists()).toBeTruthy()
-    expect(wrapper.getComponent({ name: 'AppFooter' }).exists()).toBeTruthy()
+    // expect(wrapper.getComponent({ name: 'AppFooter' }).exists()).toBeTruthy()
   })
 })
