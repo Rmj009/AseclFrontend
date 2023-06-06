@@ -57,19 +57,6 @@ async function addTodo({ todoTitle, type }: { todoTitle: string; type: string })
                     },
                 })
             },
-            // refetchQueries: [
-            //     {
-            //         query: SELECT_TODOS,
-            //         variables: {
-            //             where: {
-            //                 is_public: { _eq: false },
-            //             },
-            //             order_by: {
-            //                 created_at: "desc",
-            //             },
-            //         },
-            //     },
-            // ],
         }
     )
 

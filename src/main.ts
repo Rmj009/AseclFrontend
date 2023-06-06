@@ -6,7 +6,7 @@ import App from "./App.vue"
 import { apolloClient } from "./apollo-client"
 import { router } from "./router"
 
-import authPlugin from "./auth/authPlugin"
+// import authPlugin from "./auth/authPlugin"
 
 const app = createApp({
     setup() {
@@ -15,6 +15,6 @@ const app = createApp({
     render: () => h(App),
 })
 
-app.use(authPlugin)
+// app.use(authPlugin)
 app.use(router)
 app.mount("#app")

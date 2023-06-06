@@ -1,12 +1,53 @@
 <script setup lang="ts">
-import { useMutation } from "@vue/apollo-composable"
-// import { gql } from "graphql-tag"
+import { useMutation, useQuery } from "@vue/apollo-composable"
+import { gql } from "graphql-tag"
 import { ref } from "vue"
-import { ProductFamilyCreationInput} from "../graphql-operations"
+import { ProductFamilyCreationInput, ProductFamilyQueryInput} from "../graphql-operations"
 
 const { type } = defineProps({ type: String })
 const newTodoTitle = ref("")
 const insertProductFamily= useMutation(ProductFamilyCreationInput)
+// const { mutate: sendMessage } = useMutation(ProductFamilyCreationInput )
+
+async function insertProductFamilies() {
+    try 
+    {
+        const result = await insertProductFamily.mutate({
+            input: {
+                name: "asdfsd",
+                remark: "這是測試 !!",
+                ownerEmplayeeId: "01978"
+            }
+        }
+        )
+        // const { mutate: sendMessage } = useMutation(ProductFamilyCreationInput)
+        // Handle the result of the mutation, e.g., update the UI or display a success message
+        console.log('Inserted todo:', result)
+    }
+    
+    catch (error) 
+    {
+    // Handle any errors that occur during the mutation
+    console.error('Error inserting todo:', error);
+    }
+}
+
+async function qProductFamilies() {
+    try 
+    {
+        // const { mutate: sendMessage } = useMutation(ProductFamilyCreationInput)
+        // const privateTodosQuery = useQuery(ProductFamilyQueryInput, selectTodosVariables)
+        // Handle the result of the mutation, e.g., update the UI or display a success message
+        // const { result, loading } = {}
+        // console.log('Inserted todo:', result);
+    }
+    
+    catch (error) 
+    {
+    // Handle any errors that occur during the mutation
+    console.error('Error inserting todo:', error);
+    }
+}
 
 async function addProductFamily({ todoTitle, type }: { todoTitle: string; type: string }) {
     // Reset the input field
@@ -62,6 +103,20 @@ async function addProductFamily({ todoTitle, type }: { todoTitle: string; type: 
 
     console.log("mutate result", result)
 }
+
+</script>
+
+<template>
+    <div class="formInput">
+        <input
+            class="input"
+            placeholder="What needs to be done?"
+            v-model="newTodoTitle"
+            @keyup.enter="$event => insertProductFamilies()"
+        />
+        <i class="downArrow fa fa-angle-down" />
+    </div>
+</template>
 
 
 // {

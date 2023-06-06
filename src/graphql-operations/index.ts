@@ -8,6 +8,28 @@ mutation ProductFamilyCreationInput($input ProductFamilyCreationInput!){
     }
 }
 `
+export const ProductFamilyQueryInput = gql`
+    query($input: ProductFamilyQueryInput){
+        QueryProductFamily(input: $input){
+        Name
+        Remark
+        Products{
+            ID
+            Name
+            Remark
+        }
+    
+        }
+    }
+`
+
+
+//   {
+//     "input": {
+//       "ownerEmplayeeId": "01978"
+//     }
+//   }
+  
 
 ////////////////////////////////////////////////////////
 export const INSERT_TODOS_ONE = gql`
