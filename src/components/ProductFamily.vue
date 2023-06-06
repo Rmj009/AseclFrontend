@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useMutation, useQuery } from "@vue/apollo-composable"
 import { gql } from "graphql-tag"
-import { ref } from "vue"
+import { ref, computed } from "vue"
 import { ProductFamilyCreationInput, ProductFamilyQueryInput} from "../graphql-operations"
 
 const { type } = defineProps({ type: String })
@@ -36,10 +36,11 @@ async function qProductFamilies() {
     try 
     {
         // const { mutate: sendMessage } = useMutation(ProductFamilyCreationInput)
-        // const privateTodosQuery = useQuery(ProductFamilyQueryInput, selectTodosVariables)
+        const queryResult = useQuery(ProductFamilyQueryInput)
         // Handle the result of the mutation, e.g., update the UI or display a success message
-        // const { result, loading } = {}
-        // console.log('Inserted todo:', result);
+        const Products = computed(() => queryResult ?? [])
+
+        return { Products }
     }
     
     catch (error) 
@@ -110,7 +111,7 @@ async function addProductFamily({ todoTitle, type }: { todoTitle: string; type: 
     <div class="formInput">
         <input
             class="input"
-            placeholder="What needs to be done?"
+            placeholder="Create product family!"
             v-model="newTodoTitle"
             @keyup.enter="$event => insertProductFamilies()"
         />

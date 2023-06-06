@@ -29,7 +29,27 @@ export const ProductFamilyQueryInput = gql`
 //       "ownerEmplayeeId": "01978"
 //     }
 //   }
+export const SoftwareQueryInput = gql`
+    query($input: SoftwareQueryInput){
+        QuerySoftware(input: $input){
+        Name
+        Versions{
+            ID
+            Version
+            CreatedTime
+            CreatedOwner{
+            ID
+            EmployeeID
+            }
+        }
+        }
+    }
+`  
+//   {
+//     "input":null
+//   }
   
+
 
 ////////////////////////////////////////////////////////
 export const INSERT_TODOS_ONE = gql`

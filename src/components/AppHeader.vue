@@ -19,6 +19,7 @@ const props = defineProps({
             </ul>
         </nav>
     </header>
+
 </template>
 
 <style scoped>
