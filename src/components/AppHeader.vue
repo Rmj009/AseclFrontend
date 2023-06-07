@@ -15,7 +15,7 @@ const props = defineProps({
             <ul>
                 <li><RouterLink to="/">Home</RouterLink></li>
                 <li><RouterLink to="/graphiql">graphiql</RouterLink></li>
-                <li><RouterLink to="/typescript">typescripts</RouterLink></li>
+                <li><RouterLink to="/todos">todos</RouterLink></li>
             </ul>
         </nav>
     </header>

@@ -1,7 +1,7 @@
 // @ts-ignore
 import routes from "~pages"
 import { createRouter, createWebHistory, NavigationGuard, RouterMatcher } from "vue-router"
-import AuthService from "./auth/authService"
+// import AuthService from "./auth/authService"
 
 export const router = createRouter({
     history: createWebHistory(),
@@ -9,11 +9,12 @@ export const router = createRouter({
         if (route.meta?.requiresAuth) {
             route.beforeEnter = [
                 (to, from, next) => {
-                    if (AuthService.isAuthenticated()) {
-                        next()
-                    } else {
-                        next({ name: "Index" })
-                    }
+                    // if (AuthService.isAuthenticated()) {
+                    //     next()
+                    // } else {
+                    //     next({ name: "Index" })
+                    // }
+                    next({ name: "Index" })
                 },
             ] as NavigationGuard[]
         }

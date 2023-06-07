@@ -11,20 +11,20 @@
 </template>
 
 <script setup lang="ts">
-import { inject, onMounted } from "vue"
+import { onMounted } from "vue" //inject
 import { router } from "../router"
 // import type { AuthService } from "../auth/authService"
 
 // const auth = inject("$auth") as AuthService
-onMounted(() => {
+// onMounted(() => {
     // if (auth.isAuthenticated()) {
     //     router.push("/todos")
     // }
-    router.push("/todos")
-})
+//     router.push("/tttt")
+// })
 
 function handleLoginEvent() {
-    router.push("/todos")
+    router.push("/ddd")
 }
 
 function handleLogin() {

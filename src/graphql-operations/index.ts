@@ -23,7 +23,6 @@ export const ProductFamilyQueryInput = gql`
     }
 `
 
-
 //   {
 //     "input": {
 //       "ownerEmplayeeId": "01978"
@@ -48,7 +47,13 @@ export const SoftwareQueryInput = gql`
 //   {
 //     "input":null
 //   }
-  
+
+export const MacQueryInput = gql`
+query {
+  QueryMacAddress(input: { macType: "BT" }) {
+    Address
+  }
+`
 
 
 ////////////////////////////////////////////////////////
