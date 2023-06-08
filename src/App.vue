@@ -1,48 +1,33 @@
-<script setup lang="ts">
-import {ref, computed, watchEffect} from 'vue'
-import AppHeader from './components/AppHeader.vue'
-import { useQuery, useResult } from '@vue/apollo-composable'
-import {SoftwareQueryInput} from './graphql-operations'
-
-
-//------------------------------------------------
+<script setup>
+import { ref, onBeforeMount, onMounted, onBeforeUnmount, onUnmounted } from 'vue'
+import { RouterView } from 'vue-router'
+import AppHeader from '@/components/AppHeader.vue'
+// import AppFooter from '@/components/AppFooter.vue'
 
 const headerTitle = ref("Vue Project (Dynamic)")
-// const Qvar = ref({ Input: NaN })
-// const softwares = useQuery(SoftwareQueryInput, Qvar)
-// const result = useResult(softwares.result, [], (data) => data?.todos)
 
-// const soft = computed(() => result.value?.data?.QuerySoftware.Name ?? '')
-watchEffect(()=>{
-      console.log(headerTitle)
-    });
+// ---------------
+// Lifecycle Hooks
+// ---------------
+onBeforeMount(() => {
+  console.log('App.vue: onBeforeMount() called!')
+})
+onMounted(() => {
+  console.log('App.vue: onMounted() called!')
+})
+onBeforeUnmount(() => {
+  console.log('App.vue: onBeforeUnmount() called!')
+})
+onUnmounted(() => {
+  console.log('App.vue: onUnmounted() called!')
+})
 </script>
-
-
 
 <template>
     <AppHeader v-bind:title="headerTitle"></AppHeader>
     <RouterView />
-    <h1>asdfadsfasdfad</h1>
-    
-    <!-- <div>
-      <div v-if="result.loading">Loading...</div>
-      <div v-else-if="result.error">Error: {{ result.error.message }}</div>
-      <div v-else>
-        <div>Software Name: {{ softwares }}</div>
-        <ul>
-          <li v-for="version in result.data?.QuerySoftware.Versions" :key="version.ID">
-            <div>Version ID: {{ version.ID }}</div>
-            <div>Version: {{ version.Version }}</div>
-            <div>Created Time: {{ version.CreatedTime }}</div>
-            <div>Created Owner ID: {{ version.CreatedOwner.ID }}</div>
-            <div>Created Owner Employee ID: {{ version.CreatedOwner.EmployeeID }}</div>
-          </li>
-        </ul>
-      </div>
-    </div> -->
-    <!-- <router-view /> -->
+    <!-- <AppFooter>
+        <template v-slot:message>Editable VuePage</template>
+        <template v-slot:link><a href="https://testdriven.io">TestDriven.io</a></template>
+    </AppFooter> -->
 </template>
-
-
-

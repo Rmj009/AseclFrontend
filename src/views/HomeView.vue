@@ -13,11 +13,11 @@ const MacQueryInput = gql`
       }
     }
 `
-const variable = NaN
-const macaddr = useQuery(MacQueryInput, variable);
-// const address = computed(() => macaddr.value?.QueryMacAddress.Address ?? []);
+const {macaddr} = useQuery(MacQueryInput);
+console.log({macaddr})
+const addresses = computed(() => macaddr.value.data?.Address ?? [])
 watchEffect(() => {
-  console.log('mac', macaddr);
+  console.log('mac', addresses);
 })
 
 
