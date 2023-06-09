@@ -12,8 +12,8 @@ const store = useBannerStore()
 // ----
 // Data
 // ----
-const message = ref('List of macAddr:')
-
+const title = ref('List of macAddr:')
+const mmaaddr = ref("")
 // Each user object should contain the following fields:
 //  * id: integer,
 //  * name: string
@@ -40,7 +40,7 @@ const MacQueryInput = gql`
     }
 `
 const {loading, result, error} = useQuery(MacQueryInput)
-const addresses = computed(() => result.value?.QueryMacAddress ?? [])
+const addresses = computed(() => result.value?.QueryMacAddress)
 
 onBeforeMount(() => {
   console.log('AppContent.vue: onBeforeMount() called!')
@@ -84,7 +84,7 @@ onUnmounted(() => {
   console.log('AppContent.vue: onUnmounted() called!')
 })
 watchEffect(() => {
-  console.log('mac', result);
+  console.log('mac', addresses);
 })
 </script>
 
@@ -92,13 +92,13 @@ watchEffect(() => {
     <main>
         <Banner></Banner>
         <!-- <AddNewUser v-on:createUser="createNewUser"></AddNewUser> -->
-        <h1>{{ message }}</h1>
+        <h1>{{ title }}</h1>
         <div v-if="loading">Loading...</div>
         <div v-if="error"> error occur {{ error.message }}</div>
-        <ul v-if=" addresses.length > 0">
-          <li v-for="mac in addresses" v-bind:key="mac.addresses">{{ mac.addresses }}</li>
-        </ul>
-        <div v-else>No addresses found</div>
+        <!-- <ul v-if=" addresses.length > 0"> -->
+          <li v-for="mac in addresses" v-bind:key="mac.Address">{{ mac.Address }}</li>
+        <!-- </ul> -->
+        <!-- <div v-else>No addresses found</div> -->
         
         
         <!-- <ListUsers v-bind:users="users" v-on:deleteUser="deleteUser" v-on:updateUser="updateUser"></ListUsers> -->
