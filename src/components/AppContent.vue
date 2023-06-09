@@ -7,12 +7,14 @@ import axios from 'axios'
 import gql from 'graphql-tag'
 import { useBannerStore } from '@/stores/banner'
 import { useQuery } from '@vue/apollo-composable'
+import EditUserModal from './EditUserModal.vue'
+
 const store = useBannerStore()
 
 // ----
 // Data
 // ----
-const title = ref('List of macAddr:')
+const title = ref('List of macAddrs:')
 const mmaaddr = ref("")
 // Each user object should contain the following fields:
 //  * id: integer,
@@ -33,13 +35,18 @@ const largestUserIndex = ref(0)
 // ---------------
 
 const MacQueryInput = gql`
-    query {
-      QueryMacAddress(input: { macType: "BT" }) {
-        Address
-      }
-    }
+query ($input: MacQueryInput) {
+  QueryMacAddress(input: $input) {
+    Address
+  }
+}
 `
-const {loading, result, error} = useQuery(MacQueryInput)
+const UserInput = `{
+  "input": {
+    "macType": "BT"
+  }
+}`
+const {loading, result, error} = useQuery(MacQueryInput, UserInput)
 const addresses = computed(() => result.value?.QueryMacAddress)
 
 onBeforeMount(() => {
@@ -90,18 +97,31 @@ watchEffect(() => {
 
 <template>
     <main>
-        <Banner></Banner>
+      <h1>{{ title }}</h1>
+      <table>
+        <tr>
+            <th>Index</th>
+            <th>MacAddrees</th>
+
+        </tr>
+        <!-- <Banner>123123132123</Banner> -->
         <!-- <AddNewUser v-on:createUser="createNewUser"></AddNewUser> -->
-        <h1>{{ title }}</h1>
+        
         <div v-if="loading">Loading...</div>
         <div v-if="error"> error occur {{ error.message }}</div>
         <!-- <ul v-if=" addresses.length > 0"> -->
-          <li v-for="mac in addresses" v-bind:key="mac.Address">{{ mac.Address }}</li>
+          <!-- <li v-for="mac in addresses" v-bind:key="mac.Address">BT_Macaddress => {{ mac.Address }}</li> -->
+          <tr v-for="(mac, index) in addresses" v-bind:key="mac.Address">
+            <td>  {{ index }}  </td>
+            <td>  {{ mac.Address }}</td>
+          </tr>
         <!-- </ul> -->
         <!-- <div v-else>No addresses found</div> -->
         
         
         <!-- <ListUsers v-bind:users="users" v-on:deleteUser="deleteUser" v-on:updateUser="updateUser"></ListUsers> -->
+      </table>
+      <EditUserModal v-if="showEditModal" v-on:cancelEdit="cancelEdit" ></EditUserModal>
     </main>
 </template>
 
@@ -113,6 +133,22 @@ main {
 }
 main h1 {
   padding-top: 0.5em;
+}
+table {
+  margin-top: 0.5em;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #88BBD6;
+  padding: 0.3rem 0.8rem;
+  overflow: hidden;
+}
+
+th {
+  text-align: center;
+  background-color: #88BBD6;
+  color: black;
 }
 button, input[type="submit"] {
   background-color: #99D3Df;
