@@ -1,18 +1,18 @@
 <script setup>
-import { ref, computed, onBeforeMount, onMounted, onBeforeUnmount, onUnmounted } from 'vue'
+import { ref, computed, watchEffect, onBeforeMount, onMounted, onBeforeUnmount, onUnmounted } from 'vue'
 // import ListUsers from './ListUsers.vue'
 // import AddNewUser from './AddNewUser.vue'
 import Banner from './Banner.vue'
 import axios from 'axios'
 import gql from 'graphql-tag'
 import { useBannerStore } from '@/stores/banner'
-
+import { useQuery } from '@vue/apollo-composable'
 const store = useBannerStore()
 
 // ----
 // Data
 // ----
-const message = ref('List of Users:')
+const message = ref('List of macAddr:')
 
 // Each user object should contain the following fields:
 //  * id: integer,
@@ -33,12 +33,15 @@ const largestUserIndex = ref(0)
 // ---------------
 
 const MacQueryInput = gql`
-query {
+    query {
       QueryMacAddress(input: { macType: "BT" }) {
         Address
       }
     }
 `
+const {loading, result, error} = useQuery(MacQueryInput)
+const addresses = computed(() => result.value?.QueryMacAddress ?? [])
+
 onBeforeMount(() => {
   console.log('AppContent.vue: onBeforeMount() called!')
 })
@@ -80,6 +83,9 @@ onBeforeUnmount(() => {
 onUnmounted(() => {
   console.log('AppContent.vue: onUnmounted() called!')
 })
+watchEffect(() => {
+  console.log('mac', result);
+})
 </script>
 
 <template>
@@ -87,6 +93,14 @@ onUnmounted(() => {
         <Banner></Banner>
         <!-- <AddNewUser v-on:createUser="createNewUser"></AddNewUser> -->
         <h1>{{ message }}</h1>
+        <div v-if="loading">Loading...</div>
+        <div v-if="error"> error occur {{ error.message }}</div>
+        <ul v-if=" addresses.length > 0">
+          <li v-for="mac in addresses" v-bind:key="mac.addresses">{{ mac.addresses }}</li>
+        </ul>
+        <div v-else>No addresses found</div>
+        
+        
         <!-- <ListUsers v-bind:users="users" v-on:deleteUser="deleteUser" v-on:updateUser="updateUser"></ListUsers> -->
     </main>
 </template>
