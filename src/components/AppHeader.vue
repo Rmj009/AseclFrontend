@@ -13,9 +13,10 @@ const props = defineProps({
         </div>
         <nav>
             <ul>
-                <li><RouterLink to="/">Home</RouterLink></li>
-                <li><RouterLink to="/about">About</RouterLink></li>
-                <li><RouterLink to="/blog">Blog</RouterLink></li>
+                <li><RouterLink to="/">HOME</RouterLink></li>
+                <li><RouterLink to="/CRUD">CRUD</RouterLink></li>
+                <li><RouterLink to="/TablesView">TablesView</RouterLink></li>
+                <!-- <li><RouterLink to="/product_TestConfiguration">產品TestConfiguration表</RouterLink></li> -->
             </ul>
         </nav>
     </header>

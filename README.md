@@ -1,16 +1,6 @@
-## Course Synopsis
-
-This course teaches the fundamentals of Vue 3 by building an actual web application for managing a list of users stored in a database:
-
-![Alt text](/src/assets/vue_crud_website_screenshot.png?raw=true "Vue CRUD Example")
-
 ## Website
 
 [Vue User Management Website](https://objective-panini-46afa2.netlify.app)
-
-## Description
-
-This tutorial teaches you about Vue 3 by building a website that manages a list of users. This type of site is called a CRUD (Create, Read, Update, and Delete) application, as it provides the key functionality for interacting with a database.
 
 ## Technology
 
