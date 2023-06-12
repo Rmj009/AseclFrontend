@@ -16,6 +16,36 @@ export function QueryBTMac(){
     }`
 }
 
+export function QueryTestConfiguration(){
+    return gql`
+    query($input: TestConfigurationQueryInput){
+        QueryTestConfiguration(input: $input){
+          TotalSize
+          Datas{
+          LotCode
+          FwSwBinding{
+                 Software{
+               Name
+                   Version
+             }
+                
+                 Firmware{
+                   Name
+                   Version
+                 }
+          }
+          }
+        }
+      }
+    `
+}
+
+  
+// {
+//     "input": {
+//         "lotcode": "PD1524MB0219"
+//     }
+// }
 
 // const UserInput = `{
 //     "input": {

@@ -1,10 +1,18 @@
 <script setup>
-import {QueryWifiMac, QueryBTMac} from '../components/graphqlex/gqlapis'
+import {QueryWifiMac, QueryBTMac, QueryTestConfiguration} from '../components/graphqlex/gqlapis'
 import {ref, computed, watchEffect} from 'vue'
 import { useQuery } from '@vue/apollo-composable'
 import AppContent from '@/components/AppContent.vue'
+import gql from 'graphql-tag';
 
 
+const UserInput = `{
+    "input": {
+        "lotcode": "PD1524MB0219"
+    }
+}`
+
+// const {loading, result, error} = useQuery(QueryTestConfiguration, UserInput)
 const {loading, result, error} = useQuery(QueryBTMac)
 const addresses = computed(() => result.value?.QueryMacAddress)
 watchEffect(() => {
