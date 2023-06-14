@@ -1,9 +1,12 @@
-<script setup>
+<script>
 import { RouterLink } from 'vue-router'
+import { defineProps } from 'vue'
 
-const props = defineProps({
-  title: {type: String, required: true}
-})
+export default {
+  props: defineProps({
+    title: { type: String, required: true }
+  })
+}
 </script>
 
 <template>

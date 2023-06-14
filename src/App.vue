@@ -2,7 +2,6 @@
 import { ref, onBeforeMount, onMounted, onBeforeUnmount, onUnmounted } from 'vue'
 import { RouterView } from 'vue-router'
 import AppHeader from '@/components/AppHeader.vue'
-// import AppFooter from '@/components/AppFooter.vue'
 
 const headerTitle = ref("Vue Project (Dynamic)")
 
