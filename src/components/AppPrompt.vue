@@ -1,50 +1,39 @@
 <script>
-import axios from 'axios';
-import {watchEffect} from 'vue';
-export default{
-data() {
+// import axios from 'axios';
+// import {watchEffect} from 'vue';
+import {convertJsonToCsv} from '../utils/parselog'
+
+export default {
+  data() {
     return {
-      logs: [] // Initialize an empty array to store the logs
+      jsonData: [
+      {"ID":19,"OPId":"F8944","TestFlow":"FT","DutDevice_ID":2,"Mac_ID":12001,"ResultStatus_ID":1}
+    ],
+      csvString: ''
     };
   },
-//   mounted() {
-//     this.fetchLogs();
-mounted() {
-  this.fetchData();
-  },
-methods: {
-  fetchData() {
-    axios.get('http://192.168.1.68:3000/dashboard/api/logs/12001')
-      .then(response => {
-        const jsonData = response.data;
-        watchEffect(() => {
-          console.log('showJSON', jsonData);
-        })
-      })
-      .catch(error => {
-        console.error(error);
-      });
+  mounted() {
+    this.csvString = convertJsonToCsv(this.jsonData);
   }
-}
 };
-
-// const logs = JSON.parse('[{"ID":19,"OPId":"F8944","TestFlow":"FT",...}]');
-
 
 </script>
 
 
 <template>
-      <div>
-    <ul>
-      <li v-for="log in logs" :key="log.ID">
-        <p>ID: {{ log.ID }}</p>
-        <p>OPId: {{ log.OPId }}</p>
-        <p>TestFlow: {{ log.TestFlow }}</p>
-        <!-- Display other log properties as needed -->
-      </li>
-    </ul>
+  <div>
+    <pre>{{ csvString }}</pre>
   </div>
+      <!-- <div>
+    <ul>
+      <li v-for="log in logs" :key="log.ID"> -->
+        <!-- <p>ID: {{ log.ID }}</p>
+        <p>OPId: {{ log.OPId }}</p>
+        <p>TestFlow: {{ log.TestFlow }}</p> -->
+        <!-- Display other log properties as needed -->
+      <!-- </li>
+    </ul>
+  </div> -->
 </template>
 
 
