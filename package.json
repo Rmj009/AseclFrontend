@@ -1,35 +1,50 @@
 {
-  "name": "macmasterfront",
-  "version": "1.0.0",
+  "name": "app",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview --port 4173",
-    "test:unit": "vitest run --environment jsdom",
-    "test:coverage": "vitest run --environment jsdom --coverage",
-    "test:ui": "vitest --environment jsdom --coverage --ui",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "@apollo/client": "^3.7.15",
     "@vue/apollo-composable": "^4.0.0-beta.5",
-    "@vue/apollo-option": "^4.0.0-beta.5",
     "axios": "^0.27.2",
-    "pinia": "^2.0.20",
-    "vue": "^3.2.37",
+    "core-js": "^3.8.3",
+    "graphql": "^16.6.0",
+    "graphql-tag": "^2.12.6",
+    "vue": "^3.2.13",
     "vue-router": "^4.1.4"
   },
   "devDependencies": {
-    "@pinia/testing": "^0.0.14",
-    "@vitejs/plugin-vue": "^3.0.1",
-    "@vue/test-utils": "^2.0.2",
-    "axios-mock-adapter": "^1.21.1",
-    "c8": "^7.12.0",
-    "eslint": "^8.5.0",
-    "eslint-plugin-vue": "^9.0.0",
-    "jsdom": "^20.0.0",
-    "vite": "^3.0.0",
-    "vitest": "^0.18.1"
-    
-  }
+    "@babel/core": "^7.12.16",
+    "@babel/eslint-parser": "^7.12.16",
+    "@vue/cli-plugin-babel": "~5.0.0",
+    "@vue/cli-plugin-eslint": "~5.0.0",
+    "@vue/cli-service": "~5.0.0",
+    "cors": "^2.8.5",
+    "eslint": "^7.32.0",
+    "eslint-plugin-vue": "^8.0.3"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/vue3-essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "@babel/eslint-parser"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ]
 }

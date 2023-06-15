@@ -1,21 +1,28 @@
 <script setup>
 import { RouterLink } from 'vue-router'
+import { defineProps, watchEffect } from 'vue';
 
-const props = defineProps({
-  title: {type: String, required: true}
+
+const titles = defineProps({
+  titles: {type: String, required: true}
+})
+watchEffect(() => {
+  console.log('title', titles);
 })
 </script>
 
 <template>
     <header>
-        <div class="title">
-            <h1>{{ title }}</h1>
+        <div>
+            <h1>{{ titles }}</h1>
         </div>
         <nav>
             <ul>
-                <li><RouterLink to="/">Home</RouterLink></li>
-                <li><RouterLink to="/about">About</RouterLink></li>
-                <li><RouterLink to="/blog">Blog</RouterLink></li>
+                <li><RouterLink to="/">HOME</RouterLink></li>
+                <li><RouterLink to="/CRUD">CRUD</RouterLink></li>
+                <li><RouterLink to="/Prompt">Prompt</RouterLink></li>
+                <li><RouterLink to="/TablesView">GrphqlTable</RouterLink></li>
+                <!-- <li><RouterLink to="/product_TestConfiguration">產品TestConfiguration表</RouterLink></li> -->
             </ul>
         </nav>
     </header>
