@@ -2,17 +2,6 @@
 
 [Vue User Management Website](https://objective-panini-46afa2.netlify.app)
 
-## Technology
-
-This course utilizes the following:
-
-* [Vue 3](https://vuejs.org) with the [Composition API](https://vuejs.org/guide/extras/composition-api-faq.html)
-* [Vue Build Tools](https://vuejs.org/guide/scaling-up/tooling.html) using [Vite](https://vitejs.dev)
-* [Vitest](https://vitest.dev)
-* [Vue Test Utils](https://test-utils.vuejs.org/guide/)
-* [Pinia](https://pinia.vuejs.org)
-* [Vue Router](https://router.vuejs.org)
-
 ## Chapters
 
 **Part I (Vue Fundamentals)**
