@@ -15,36 +15,33 @@
 
 
 <script>
-export default {
-  data() {
-    return {
-      name: '',
-    };
-  },
-  methods: {
-    executeQuery() {
-      const sqlStatement = 'SELECT * FROM users WHERE name = ?';
-      const data = {
-        name: this.name,
-        sql: sqlStatement,
-      };
+import axios from 'axios';
+// import { Console } from 'console';
+// import { response } from 'express';
+import { onMounted, reactive } from 'vue';
 
-      fetch('/api/query', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      })
-        .then(response => response.json())
-        .then(result => {
-          console.log(result); // Process the query result as needed
-        })
-        .catch(error => {
+export default {
+  setup(){
+    const data = reactive([]);
+    
+    onMounted(() => {
+      axios.get('http://192.168.1.68:3000/dashboard/api/logs/12001', {
+        headers:{Authorization: 'Bearer' },
+      }).then((response) => { data.push(response.data) }).catch((error) => {
+        if (error.response && error.response.status == 401){
+          alert('Access token expired');
+        }
+        else{
           console.error(error);
-        });
-    },
-  },
+        }
+      })
+      
+    })
+    return {
+      data,
+    };
+  }
+
 };
 </script>
 

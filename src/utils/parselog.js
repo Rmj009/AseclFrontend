@@ -7,7 +7,7 @@ export function convertJsonToCsv(jsonData) {
   
     // Create an array to hold the CSV rows
     const csvRows = [headerRow];
-  
+    console.log(csvRows)
     // Process each object in the JSON array
     jsonData.forEach((item) => {
       // Extract the values from the object
@@ -17,7 +17,7 @@ export function convertJsonToCsv(jsonData) {
           const resultSummary = JSON.parse(item[key]);
           return JSON.stringify(resultSummary).replace(/"/g, '""');
         }
-  
+        console.log(jsonData)
         // Escape double quotes and wrap the value in double quotes
         return `"${String(item[key]).replace(/"/g, '""')}"`;
       });
