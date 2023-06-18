@@ -25,8 +25,6 @@ methods: {
 }
 };
 
-// const logs = JSON.parse('[{"ID":19,"OPId":"F8944","TestFlow":"FT",...}]');
-
 
 </script>
 
