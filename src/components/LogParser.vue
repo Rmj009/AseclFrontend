@@ -15,12 +15,12 @@ export default {
       beautifiedData: '',
       paraData: '',
       ResultSummary: {},
+      showResultSummary: false,
       pageSize: 10, // Number of logs to display per page
       currentPage: 1, // Current page number
     };
   },
   mounted() {
-    this.beautifyJson();
     this.parseResultSummary();
   },
   computed: {
@@ -36,6 +36,9 @@ export default {
   methods: {
     parseResultSummary(resultSummary) {
       return JSON.parse(resultSummary);
+    },
+    toggleResultSummary() {
+      this.showResultSummary = !this.showResultSummary;
     },
     changePage(page) {
       this.currentPage += page;
@@ -53,6 +56,7 @@ export default {
 <!-- <pre>{{ beautifiedData }}</pre>
 <pre> {{ResultSummary.No}} </pre> -->
 <div>
+  <main>
     <ul>
       <li v-for="(log, index) in jsonData" :key="index">
         <p>ID: {{ log.ID }}</p>
@@ -61,8 +65,8 @@ export default {
         <p>DutDevice_ID: {{ log.DutDevice_ID }}</p>
         <p>Mac_ID: {{ log.Mac_ID }}</p>
         <p>ResultStatus_ID: {{ log.ResultStatus_ID }}</p>
-        <p>ResultSummary:</p>
-        <ul>
+        <p @click="toggleResultSummary">ResultSummary:</p>
+        <ul v-if="showResultSummary">
           <li v-for="(item, key) in parseResultSummary(log.ResultSummary)" :key="key">
             {{ key }}: {{ item }}
           </li>
@@ -70,6 +74,7 @@ export default {
         <p>CreatedTime: {{ log.CreatedTime }}</p>
       </li>
     </ul>
+  </main>
 </div>
 <div>
     <button @click="changePage(1)">Next Page</button>
@@ -94,4 +99,15 @@ export default {
 
 
 <style>
+  .result_summary
+  {
+    display: flex;
+  flex-wrap: wrap;
+  max-height: 500px; /* Set a maximum height to enable scrolling */
+  overflow: auto; /* Enable scrolling when there are many elements */
+}
+.pack {
+  display: none; /* Hide the items when packed */
+}
+  
 </style>
