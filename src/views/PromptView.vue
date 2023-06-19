@@ -6,10 +6,9 @@ import AppPrompt from '../components/AppPrompt.vue';
 
 <template>
   <!-- <BlogEntries></BlogEntries>> -->
-  <h1> Playing Restful API</h1>
+  <h1> <a href="http://192.168.1.68:3000/dashboard/api/logs">Connnect Restful API</a> </h1>
   <AppPrompt></AppPrompt>
 <!-- <ul>
   <li v-for="mac in address" :key="mac.Address">{{ mac.Address }}</li>
 </ul> -->
-
 </template>

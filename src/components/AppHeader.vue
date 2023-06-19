@@ -20,7 +20,7 @@ watchEffect(() => {
             <ul>
                 <li><RouterLink to="/">HOME</RouterLink></li>
                 <li><RouterLink to="/CRUD">CRUD</RouterLink></li>
-                <li><RouterLink to="/Prompt">Prompt</RouterLink></li>
+                <li><RouterLink to="/Prompt">Test Logs</RouterLink></li>
                 <li><RouterLink to="/TablesView">GrphqlTable</RouterLink></li>
                 <!-- <li><RouterLink to="/product_TestConfiguration">產品TestConfiguration表</RouterLink></li> -->
             </ul>

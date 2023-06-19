@@ -47,26 +47,30 @@ export default {
 <div>
   <main>
     <ul>
-      <li v-for="(log, index) in jsonData" :key="index">
-        <p>ID: {{ log.ID }}</p>
-        <p>OPId: {{ log.OPId }}</p>
-        <p>TestFlow: {{ log.TestFlow }}</p>
-        <p>DutDevice_ID: {{ log.DutDevice_ID }}</p>
-        <p>Mac_ID: {{ log.Mac_ID }}</p>
-        <p>ResultStatus_ID: {{ log.ResultStatus_ID }}</p>
+      <div v-for="(log, index) in jsonData" :key="index">
+        <li>ID: {{ log.ID }}</li>
+        <li>OPId: {{ log.OPId }}</li>
+        <li>TestFlow: {{ log.TestFlow }}</li>
+        <li>DutDevice_ID: {{ log.DutDevice_ID }}</li>
+        <li>Mac_ID: {{ log.Mac_ID }}</li>
+        <li>ResultStatus_ID: {{ log.ResultStatus_ID }}</li>
         <tr>
-          <th @click="toggleResultSummary">ResultSummary:</th>
+          <h2 @click="toggleResultSummary">ResultSummary:</h2>
         </tr>
         <ul v-if="showResultSummary">
-          parseJSON(log.ResultSummary)
-          <tr v-for="(keys, value) in parseJSON(log.ResultSummary) " v-bind:key="keys">
-            <td>{{ keys }}: {{ value }} </td>
-          </tr>
+          <!-- parseJSON(log.ResultSummary) -->
+          <table>
+            <tr v-for="(keys, value) in parseJSON(log.ResultSummary) " v-bind:key="keys">
+            <td>{{ value  }}</td>
+            <td>{{ keys }}  </td>
+            </tr>
+          </table>
+          
         </ul>
-        <p>Path: {{ log.Path }}</p>
-        <p>CreatedTime: {{ log.CreatedTime }}</p>
+        <li>Path: {{ log.Path }}</li>
+        <li>CreatedTime: {{ log.CreatedTime }}</li>
         <p>===========================================</p>
-      </li>
+      </div>
     </ul>
   </main>
 </div>
@@ -93,6 +97,31 @@ export default {
 
 
 <style>
+
+main {
+  margin: 0 auto;
+  max-width: 1000px;
+  padding: 1em;
+}
+main p {
+  padding-top: 0.5em;
+}
+main h2{
+  background-color: #99D3Df;
+  padding: 0.5em 2.5em;
+  text-align: center;
+  font-size: 1.2em;
+}
+table {
+  margin-top: 0.5em;
+  width: 100%;
+}
+td, th {
+  border: 1px solid #88BBD6;
+  padding: 0.3rem 0.8rem;
+  overflow: hidden;
+}
+
 .result_summary
 {
   display: flex;
