@@ -11,22 +11,21 @@ export default {
   data() {
     return {
       jsonData: testlogs,
-      beautifiedData: '',
-      // ResultSummary: {},
+      ResultSummaryData: {},
       showResultSummary: false,
       pageSize: 10, // Number of logs to display per page
       currentPage: 1, // Current page number
     };
   },
   mounted() {
-    this.parseJSON();
+    // this.parseJSON();
     this.toggleResultSummary();
     this.changePage();
   },
   methods: {
-    parseJSON(data) {
-      watchEffect(() => {console.log('resultSums', data)})
-      return JSON.parse(data);
+    parseJSON(ResultSummaryData) {
+      watchEffect(() => {console.log('resultSums', ResultSummaryData)})
+      return JSON.parse(ResultSummaryData);
     },
     toggleResultSummary() {
       this.showResultSummary = !this.showResultSummary;
@@ -44,7 +43,6 @@ export default {
 
 
 <template>
-<!-- <pre>{{ beautifiedData }}</pre>-->
 
 <div>
   <main>
@@ -56,14 +54,18 @@ export default {
         <p>DutDevice_ID: {{ log.DutDevice_ID }}</p>
         <p>Mac_ID: {{ log.Mac_ID }}</p>
         <p>ResultStatus_ID: {{ log.ResultStatus_ID }}</p>
-        <p @click="toggleResultSummary">ResultSummary:</p>
+        <tr>
+          <th @click="toggleResultSummary">ResultSummary:</th>
+        </tr>
         <ul v-if="showResultSummary">
-          <li v-for="(keys, value) in parseJSON(log.ResultSummary)" :key="keys">
-            {{ keys }}: {{ value }}
-          </li>
+          parseJSON(log.ResultSummary)
+          <tr v-for="(keys, value) in parseJSON(log.ResultSummary) " v-bind:key="keys">
+            <td>{{ keys }}: {{ value }} </td>
+          </tr>
         </ul>
         <p>Path: {{ log.Path }}</p>
         <p>CreatedTime: {{ log.CreatedTime }}</p>
+        <p>===========================================</p>
       </li>
     </ul>
   </main>

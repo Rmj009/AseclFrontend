@@ -108,5 +108,6 @@ export default {
 .pack {
   display: none; /* Hide the items when packed */
 }
+
   
 </style>
