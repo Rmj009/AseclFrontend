@@ -1,8 +1,7 @@
 <script>
 // import axios from 'axios';
-import {ref, watchEffect} from 'vue';
+// import {ref, watchEffect} from 'vue';
 // import {convertJsonToCsv} from '../utils/parselog'
-// import {logdata} from '../components/graphqlex'
 
 import {testlogs} from './logdata.js';
 
