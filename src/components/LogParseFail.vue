@@ -2,13 +2,12 @@
 // import axios from 'axios';
 // import {ref, watchEffect} from 'vue';
 // import {convertJsonToCsv} from '../utils/parselog'
-import {logsPass} from '../components/graphqlex/logdata';
+import {logFail} from '../components/graphqlex/logdata';
 
 export default {
   data() {
     return {
-      jsonData: logsPass,
-      beautifiedData: '',
+      jsonData: logFail,
       ResultSummary: {},
       showResultSummary: false,
       pageSize: 10, // Number of logs to display per page
@@ -48,8 +47,6 @@ export default {
 
 
 <template>
-<!-- <pre>{{ beautifiedData }}</pre>
-<pre> {{ResultSummary.No}} </pre> -->
 <div>
   <main>
     <ul>
