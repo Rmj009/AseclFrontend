@@ -18,7 +18,7 @@ COPY . .
 RUN yarn run build
 
 # Expose the container port (if needed)
-EXPOSE 80
+EXPOSE 8080
 
 # Set the command to run the application
 CMD ["yarn", "run", "serve"]
