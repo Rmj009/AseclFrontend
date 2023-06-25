@@ -26,13 +26,12 @@ watchEffect(() => {
   <!-- <AppContent></AppContent> -->
     <main>
         <h1> Tables</h1>
-        <table>
+        <table class="table-borard">
             <tr>
-                <th>Index</th>
-                <th>MacAddrees</th>
+                <th scope="col">#</th>
+                <th scope="col">MacAddrees</th>
 
             </tr>
-            <!-- <Banner>123123132123</Banner> -->
             <!-- <AddNewUser v-on:createUser="createNewUser"></AddNewUser> -->
             
             <div v-if="loading">Loading...</div>
@@ -40,8 +39,8 @@ watchEffect(() => {
             <!-- <ul v-if=" addresses.length > 0"> -->
             <!-- <li v-for="mac in addresses" v-bind:key="mac.Address">BT_Macaddress => {{ mac.Address }}</li> -->
             <tr v-for="(mac, index) in addresses" v-bind:key="mac.Address">
-                <td>  {{ index }}  </td>
-                <td>  {{ mac.Address }}</td>
+                <th scope="row">  {{ index + 1}}  </th>
+                <td>  {{ mac.Address.toLowerCase() }}</td>
             </tr>
             <!-- </ul> -->
             <!-- <div v-else>No addresses found</div> -->
