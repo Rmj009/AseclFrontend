@@ -1,20 +1,21 @@
-# Use the official Node.js 14 image as the base
-FROM node:18.16.0 AS build
+FROM node:lts-alpine
+# install simple http server for serving static content
+RUN npm install -g http-server
+# make the 'app' folder the current working directory
+ADD ./src /app
 
-# Set the working directory in the container
-WORKDIR /src/app
+WORKDIR /app
 
-# Copy package.json and package-lock.json
 COPY package*.json ./
 
-# Install the dependencies
-RUN npm install
+# Install dependencies
+RUN yarn global add @vue/cli@5.0.8
 
 # Copy the application code
 COPY . .
 
 # Build the Vue.js application
-RUN npm run build
+RUN yarn run build
 
 FROM nginx:latest
 COPY --from=build /app/dist /usr/share/nginx/html
@@ -22,6 +23,4 @@ COPY --from=build /app/dist /usr/share/nginx/html
 EXPOSE 8080
 
 # Set the command to run the application
-CMD ["npm", "run", "serve"]
-
-
+CMD ["yarn", "run", "serve"]

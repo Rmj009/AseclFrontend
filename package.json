@@ -5,7 +5,9 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "styleguide": "vue-cli-service styleguidist",
+    "styleguide:build": "vue-cli-service styleguidist:build"
   },
   "dependencies": {
     "@apollo/client": "^3.7.15",
@@ -26,7 +28,11 @@
     "cors": "^2.8.5",
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^8.0.3",
+<<<<<<< HEAD
 
+=======
+    "vue-cli-plugin-styleguidist": "~4.72.4",
+>>>>>>> b54f83846e60efc4d240c5057b70439a21adc0f9
     "vue-styleguidist": "^4.72.4",
     "webpack": "^5.87.0"
   },
