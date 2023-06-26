@@ -31,8 +31,8 @@ watchEffect(() => {
         <table class="table table-bordered">
           <thread>
             <tr>
-                <th scope="col">#</th>
-                <th scope="col">MacAddrees</th>
+                <th scope="col"># MacAddrees</th>
+                <th scope="col"></th>
 
             </tr>
             <!-- <AddNewUser v-on:createUser="createNewUser"></AddNewUser> -->
@@ -43,7 +43,7 @@ watchEffect(() => {
             <!-- <li v-for="mac in addresses" v-bind:key="mac.Address">BT_Macaddress => {{ mac.Address }}</li> -->
             <tr v-for="(mac, index) in addresses" v-bind:key="mac.Address">
                 <th scope="row">  {{ index + 1}}  </th>
-                <td>  {{ mac.Address.toLowerCase() }}</td>
+                <td>  {{ mac.Address }}</td>
             </tr>
             <!-- </ul> -->
             <!-- <div v-else>No addresses found</div> -->

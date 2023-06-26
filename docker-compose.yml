@@ -1,11 +1,11 @@
 version: "3.7"
 
 services:
-  vue-app:
+  macfront:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: vue-app
+    container_name: macfront
     restart: always
     ports:
       - "8080:8080"
