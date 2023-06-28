@@ -1,5 +1,4 @@
 <script setup>
-// import BlogEntries from '@/components/BlogEntries.vue'
 // import AppContent from '@/components/AppContent.vue'
 import AppPrompt from '../components/AppPrompt.vue';
 </script>
