@@ -2,8 +2,6 @@
 
 [Vue User Management Website](https://objective-panini-46afa2.netlify.app)
 
-## Chapters
-
 **Part I (Vue Fundamentals)**
 * Chapter 1 - Introduction to VueJS
 * Chapter 2 - Changelog
@@ -80,7 +78,3 @@ $ npm run test:coverage
 ```sh
 $ npm run lint
 ```
-
-## Additional Resources
-
-Vue Documentation: [https://vuejs.org/guide/introduction.html](https://vuejs.org/guide/introduction.html)

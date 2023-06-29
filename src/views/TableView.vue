@@ -19,7 +19,6 @@ watchEffect(() => {
   console.log('mac', addresses);
 })
 
-
 </script>
 
 <template>
