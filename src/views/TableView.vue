@@ -29,7 +29,6 @@ watchEffect(() => {
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">MacAddrees</th>
-
             </tr>
             <!-- <AddNewUser v-on:createUser="createNewUser"></AddNewUser> -->
             
