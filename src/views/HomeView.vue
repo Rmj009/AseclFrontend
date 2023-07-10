@@ -1,6 +1,5 @@
 <script>
 // import {ref, computed, watchEffect} from 'vue'
-// import { useQuery } from '@vue/apollo-composable'
 // import AppContent from '@/components/AppContent.vue'
 export default{
   name: 'homepageComponent',

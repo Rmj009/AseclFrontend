@@ -16,8 +16,6 @@
 
 <script>
 import axios from 'axios';
-// import { Console } from 'console';
-// import { response } from 'express';
 import { onMounted, reactive } from 'vue';
 
 export default {
