@@ -1,80 +1,16 @@
-## Website
 
-[Vue User Management Website](https://objective-panini-46afa2.netlify.app)
+# Vue Sidebar Menu
 
-**Part I (Vue Fundamentals)**
-* Chapter 1 - Introduction to VueJS
-* Chapter 2 - Changelog
-* Chapter 3 - Initial Website
-* Chapter 4 - Getting Started with VueJS
-* Chapter 5 - Displaying Lists with the `v-for` Directive
-* Chapter 6 - Using the `v-on` and `v-show` Directives
-* Chapter 7 - Using the `v-if` and `v-else` Directives
-* Chapter 8 - Introduction to Methods
-* Chapter 9 - Methods (Part II)
-* Chapter 10 - Computed Properties
-* Chapter 11 - Style Binding
+This is a responsive sidebar menu
 
-**Part II (Components)**
-* Chapter 12 - Introduction to Components
-* Chapter 13 - Vue Build Tools
-* Chapter 14 - Components (Part II)
-* Chapter 15 - Unit Testing
-* Chapter 16 - Props
-* Chapter 17 - Slots
-* Chapter 18 - Components (Part III)
-* Chapter 19 - Custom Events
-* Chapter 20 - Unit Testing (Part II)
+![Preview](./screenshot/Vue-Sidebar-Menu.gif)
 
-**Part III (Working with an API)**
-* Chapter 21 - Vue Lifecyle
-* Chapter 22 - TDD: Loading data via GET
-* Chapter 23 - TDD: Message Banner
-* Chapter 24 - TDD: Saving data via POST
-* Chapter 25 - TDD: Deleting data via DELETE
-* Chapter 26 - TDD: Updating data via PUT
+## Stack
 
-**Part IV (Vue Router and Vuex)**
-* Chapter 27 - Pinia (Part I)
-* Chapter 28 - Pinia (Part II)
-* Chapter 29 - Vue Router
-* Chapter 30 - Deploying to Netlify
-* Chapter 31 - Conclusion
+Created with:
 
-## Project Setup
-
-```sh
-$ git clone git@gitlab.com:patkennedy79/vue-crud-course-code.git
-$ cd vue-crud-course-code
-$ npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-$ npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-$ npm run build
-```
-
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-$ npm run test:unit
-```
-
-### Test Coverage
-
-```sh
-$ npm run test:coverage
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-$ npm run lint
-```
+- Vue 3
+- TypeScript
+- Vite
+- Sass
+- Vue-Router

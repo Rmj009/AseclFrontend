@@ -1,32 +1,39 @@
-<script setup>
-import { ref, onBeforeMount, onMounted, onBeforeUnmount, onUnmounted } from 'vue'
+<script setup lang="ts">
+import {ref} from 'vue'
 import { RouterView } from 'vue-router'
-import AppHeader from '@/components/AppHeader.vue'
+
+import SidebarMenu from '@/components/SidebarMenu.vue';
 
 const headerTitle = ref("Vue Project (Dynamic)")
 
-// ---------------
-// Lifecycle Hooks
-// ---------------
-onBeforeMount(() => {
-  console.log('App.vue: onBeforeMount() called!')
-})
-onMounted(() => {
-  console.log('App.vue: onMounted() called!')
-})
-onBeforeUnmount(() => {
-  console.log('App.vue: onBeforeUnmount() called!')
-})
-onUnmounted(() => {
-  console.log('App.vue: onUnmounted() called!')
-})
 </script>
 
 <template>
-    <AppHeader v-bind:title="headerTitle"></AppHeader>
+  <div id="root">
+    <SidebarMenu class="sidebar" />
+    <RouterView class="router-view" />
+  </div>
+  <!-- <div>
+    <AppHeader v-bind:titles="headerTitle"></AppHeader>
     <RouterView />
-    <!-- <AppFooter>
-        <template v-slot:message>Editable VuePage</template>
-        <template v-slot:link><a href="https://testdriven.io">TestDriven.io</a></template>
-    </AppFooter> -->
+  </div> -->
+  
 </template>
+
+<style scoped lang="scss">
+#root {
+  display: grid;
+  grid-template-areas: 'sidebar router-view';
+  grid-template-columns: auto 1fr;
+  font-family: sans-serif;
+}
+
+.sidebar {
+  grid-area: 'sidebar';
+}
+
+.router-view {
+  grid-area: 'router-view';
+  padding: 1rem;
+}
+</style>
